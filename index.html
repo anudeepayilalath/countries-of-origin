@@ -14,11 +14,7 @@
     </head>
     <style>
       body{
-        display: flex;
-        font-family: 'Roboto', sans-serif;   
-      
-
-        
+        font-family: 'Roboto', sans-serif;  
       }
 
       #maindiv{
@@ -30,13 +26,13 @@
       }
 
       #heading{
+        width:50%;
         display: flex;
+        flex-direction: row;
+        align-items:center;
         justify-content: space-between;
       }
 
-      #heading p{
-        opacity:0;
-      }
 
      h4{
        color:#1b014c;
@@ -56,10 +52,30 @@
       font-size: 12px;
       color:gray;
     }
-     @media only screen and (max-width:450px)
+     @media only screen and (max-width:966px)
         {
-    
+         #heading{
+           width:100%;
+           flex-direction: column-reverse;
+         }
 
+         #chartsection{
+           width:80%;
+           height:200;
+         }
+        }
+
+
+        @media only screen and (max-width:620px)
+        {
+
+          #heading h4{
+            font-size:12px;
+          }
+
+          #chartsection{
+            zoom:0.5;
+          }
         }
     </style>
   <body>
@@ -67,12 +83,13 @@
     <div id="maindiv">
       <div id="heading" >
         <h4>Top 10 countries of origin for fintechs</h4>
-        <p>Write something</p>
+       <img src="platformable-logo-blue.png" width="160px">
       </div>
       
     <div id="chartsection">
       
-      <canvas id="myChart" width="500" height="290"></canvas></div>
+      <canvas id="myChart" width="500" height="290"></canvas>
+    </div>
       <p>Number of fintechs</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.1.2    // exact version"></script>
@@ -103,6 +120,8 @@
             }]
         },
         options: {
+          responsive:true, 
+          aspectRation:true,
           animation: {
                             onComplete: function () {
                                 var chartInstance = this.chart,
