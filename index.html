@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha256-t9UJPrESBeG2ojKTIcFLPGF7nHi2vEc7f5A2KpH/UBU=" crossorigin="anonymous"></script>
+    <title>Top 10 countries of origin fo fintechs</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    </head>
+    <style>
+      body{
+        display: flex;
+        font-family: 'Roboto', sans-serif;   
+      
+
+        
+      }
+
+      #maindiv{
+        width:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+      }
+
+      #heading{
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #heading p{
+        opacity:0;
+      }
+
+     h4{
+       color:#1b014c;
+       
+     }
+    #chartsection{
+      display: flex;
+      flex-direction: row;
+      justify-content:center;
+      align-items: center;
+    }
+     
+
+    #chartsection p{
+      writing-mode: tb-rl;
+    }
+
+    p{
+      font-size: 12px;
+      color:gray;
+    }
+     @media only screen and (max-width:450px)
+        {
+      
+
+        }
+    </style>
+  <body>
+
+    <div id="maindiv">
+      <div id="heading" width="500">
+        <h4>Top 10 countries of origin for fintechs</h4>
+        <p>Write something</p>
+      </div>
+      
+    <div id="chartsection">
+      <p>Country</p>
+      <canvas id="myChart" width="500" height="300"></canvas></div>
+      <p>Number of fintechs</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.1.2    // exact version"></script>
+    <script>
+      
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+            labels: ['UK', 'USA', 'Singapore', 'Mexico', 'Germany', 'Canada', 'Sweden', 'Australia', 'France', 'Netherlands'],
+            datasets: [{
+                label: '# of Votes',
+                data: [168, 157, 107, 50, 37, 36, 29, 29, 23, 20],
+                backgroundColor: [
+                    '#46BDC6',
+                    '#1b014c',
+                    '#01fdf6',
+                    '#469556',
+                    "#ffd23f",
+                    '#1b014c',
+                    '#ffd23f',
+                    '#01fdf6',
+                    '#ffd23f',
+                    '#ffd23f'
+                ],
+  
+                borderWidth: 0
+            }]
+        },
+        options: {
+          animation: {
+                            onComplete: function () {
+                                var chartInstance = this.chart,
+                                
+                                ctx = chartInstance.ctx;
+                                ctx.font = Chart.helpers.fontString(Chart.fontSize="10", Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'center';
+                                this.data.datasets.forEach(function (dataset, i)
+                                {
+                                    var meta = chartInstance.controller.getDatasetMeta(i);
+                            
+                                    meta.data.forEach(function (bar, index) {
+                                        var data = dataset.data[index];
+                                       
+                                        
+                                        data > 0 ? ctx.fillText(data, bar._model.x + 10, bar._model.y - -3) : ''
+                                    });
+                                });
+                            }
+                        },
+
+          legend: {
+            display: false
+         },
+            scales: {
+                yAxes: [{
+                  gridLines: {
+                color: "rgba(0, 0, 0, 0)",
+            },
+                  barThickness:18,
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }], 
+                xAxes: [{
+                  ticks: {
+                beginAtZero: true,
+                max: 175,
+                min: 0
+            },
+            gridLines: {
+                color: "rgba(0, 0, 0, 0)",
+            }
+        }],
+            }
+        }
+    });
+    </script>
+  </body>
+</html>
