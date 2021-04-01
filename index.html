@@ -50,9 +50,7 @@
     }
      
 
-    #chartsection p{
-      writing-mode: tb-rl;
-    }
+   
 
     p{
       font-size: 12px;
@@ -60,21 +58,21 @@
     }
      @media only screen and (max-width:450px)
         {
-      
+    
 
         }
     </style>
   <body>
 
     <div id="maindiv">
-      <div id="heading" width="500">
+      <div id="heading" >
         <h4>Top 10 countries of origin for fintechs</h4>
         <p>Write something</p>
       </div>
       
     <div id="chartsection">
-      <p>Country</p>
-      <canvas id="myChart" width="500" height="300"></canvas></div>
+      
+      <canvas id="myChart" width="500" height="290"></canvas></div>
       <p>Number of fintechs</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.1.2    // exact version"></script>
@@ -135,7 +133,7 @@
                   gridLines: {
                 color: "rgba(0, 0, 0, 0)",
             },
-                  barThickness:18,
+                  barThickness:15,
                     ticks: {
                         beginAtZero: true
                     }
