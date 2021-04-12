@@ -25,6 +25,10 @@
         flex-direction: column;
       }
 
+      #maindiv p{
+        width:50%;
+      }
+
       #heading{
         width:50%;
         display: flex;
@@ -51,6 +55,11 @@
     p{
       font-size: 12px;
       color:gray;
+    }
+
+    p span{
+      color:rgb(32, 31, 31);
+      font-weight:bold;
     }
      @media only screen and (max-width:966px)
         {
@@ -90,7 +99,9 @@
       
       <canvas id="myChart" width="500" height="290"></canvas>
     </div>
-      <p>Number of fintechs</p>
+      <p><span>Methodology:</span>Platformable tracks all fintech globally that are accredited or known to use bank APIs. We then review what products they are making available
+         and tally them according to category, and we measure other characteristics such as their target customer segments and business model/monetisation 
+         approaches. We review each fintech at least once every three months.</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.1.2    // exact version"></script>
     <script>
